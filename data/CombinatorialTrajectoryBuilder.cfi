@@ -1,7 +1,6 @@
 
- include "RecoTracker/TrackProducer/data/FinalFitWithMaterial.cfi"
-
  module trackCandidateMaker = KFTrackCandidateMaker{
+        string SeedProducer         = "seedGenerator"
 	int32  maxCand              = 5
         int32  maxLostHit           = 1	
 	int32  maxConsecLostHit     = 1
