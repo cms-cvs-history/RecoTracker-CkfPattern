@@ -1,3 +1,4 @@
+include "RecoTracker/TrackProducer/data/FinalFitWithMaterial.cfi"
 
  module trackCandidateMaker = KFTrackCandidateMaker{
         string SeedProducer         = "seedGenerator"
