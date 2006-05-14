@@ -1,4 +1,7 @@
-include "RecoTracker/TrackProducer/data/FinalFitWithMaterial.cfi"
+#
+# This cfi should be included to run the CombinatorialTrajectoryBuilder
+# and the KFTrackCandidateMaker 
+#
 
  module trackCandidateMaker = KFTrackCandidateMaker{
         string SeedProducer         = "seedGenerator"
