@@ -13,4 +13,10 @@
         int32  minimumNumberOfHits  = 5
 	bool   alwaysUseInvalidHits = true
         bool   seedCleaning         = false
+#
+# nested parameter set for MeasurementTracker
+      PSet MeasurementTrackerParameters =
+      {
+         string PixelCPE = "PixelCPEParmError"
+      }	
   }
