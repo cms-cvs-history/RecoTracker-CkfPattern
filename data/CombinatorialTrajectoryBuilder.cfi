@@ -18,5 +18,6 @@
       PSet MeasurementTrackerParameters =
       {
          string PixelCPE = "PixelCPEParmError"
+         double NSigmaInside =3
       }	
   }
