@@ -1,0 +1,24 @@
+#
+# This cfi should be included to run the CkfTrajectoryBuilder
+# and the CkfTrackCandidateMaker 
+#
+
+ module CkfTrackCandidates = CkfTrackCandidateMaker{
+        string SeedProducer         = "seedGenerator"
+	double ptCut                = 0.9
+	int32  maxCand              = 5
+        int32  maxLostHit           = 1	
+	int32  maxConsecLostHit     = 1
+	double lostHitPenalty       = 30.
+	bool   intermediateCleaning = true
+        int32  minimumNumberOfHits  = 5
+	bool   alwaysUseInvalidHits = true
+        bool   seedCleaning         = false
+#
+# nested parameter set for MeasurementTracker
+      PSet MeasurementTrackerParameters =
+      {
+         string PixelCPE = "PixelCPEParmError"
+         double NSigmaInside =3
+      }	
+  }
