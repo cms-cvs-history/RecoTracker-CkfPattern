@@ -1,4 +1,4 @@
- module CTFTrackCandidates = KFTrackCandidateMaker{
+ module CkfTrackCandidates = KFTrackCandidateMaker{
         string SeedProducer         = "GlobalPixelSeeds"
 	int32  maxCand              = 5
         int32  maxLostHit           = 1	
