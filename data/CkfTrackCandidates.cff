@@ -27,6 +27,8 @@ include "TrackingTools/MaterialEffects/data/MaterialPropagator.cfi"
 
 # PropagatorWithMaterialESProducer
 include "TrackingTools/MaterialEffects/data/OppositeMaterialPropagator.cfi"
+# stripCPE
+include "RecoLocalTracker/SiStripRecHitConverter/data/StripCPEfromTrackAngle.cfi"
 
 ############### generate CTF track candidates ############
 include "RecoTracker/CkfPattern/data/CkfTrackCandidates.cfi"
