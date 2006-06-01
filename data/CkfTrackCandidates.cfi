@@ -4,6 +4,7 @@
 #
 
  module CkfTrackCandidates = CkfTrackCandidateMaker{
+	
         string SeedProducer         = "GlobalPixelSeeds"
 	double ptCut                = 0.9
 	int32  maxCand              = 5
@@ -14,6 +15,7 @@
         int32  minimumNumberOfHits  = 5
 	bool   alwaysUseInvalidHits = true
         bool   seedCleaning         = false
+	string TTRHBuilder          =  "WithTrackAngle"
 #
 # nested parameter set for MeasurementTracker
       PSet MeasurementTrackerParameters =
