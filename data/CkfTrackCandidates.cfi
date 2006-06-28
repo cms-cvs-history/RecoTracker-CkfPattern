@@ -20,7 +20,8 @@
 # nested parameter set for MeasurementTracker
       PSet MeasurementTrackerParameters =
       {
-         string PixelCPE = "PixelCPEParmError"
+         string PixelCPE = "PixelCPEfromTrackAngle"
+         string StripCPE = "StripCPEfromTrackAngle"
          double NSigmaInside =3
       }	
   }
