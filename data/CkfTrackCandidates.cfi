@@ -15,8 +15,13 @@
         int32  minimumNumberOfHits  = 5
 	bool   alwaysUseInvalidHits = true
         bool   seedCleaning         = false
-	string TTRHBuilder          =  "WithTrackAngle"
-#
+	string TTRHBuilder          = "WithTrackAngle"
+	string propagatorAlong      = "PropagatorWithMaterial"
+	string propagatorOpposite   = "PropagatorWithMaterialOpposite"
+	string updator              = "KFUpdator"
+	string estimator            = "Chi2"
+
+
 # nested parameter set for MeasurementTracker
       PSet MeasurementTrackerParameters =
       {
@@ -24,4 +29,12 @@
          string StripCPE = "StripCPEfromTrackAngle"
          double NSigmaInside =3
       }	
-  }
+
+# nested parameter set for TransientInitialStateEstimator
+      PSet TransientInitialStateEstimatorParameters =
+      {
+         string propagatorAlongTISE    = "PropagatorWithMaterial"
+         string propagatorOppositeTISE = "PropagatorWithMaterialOpposite"
+      }	
+
+ }
