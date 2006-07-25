@@ -27,7 +27,6 @@
       {
          string PixelCPE = "PixelCPEfromTrackAngle"
          string StripCPE = "StripCPEfromTrackAngle"
-         double NSigmaInside =3
       }	
 
 # nested parameter set for TransientInitialStateEstimator
