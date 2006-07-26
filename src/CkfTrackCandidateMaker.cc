@@ -180,9 +180,9 @@ namespace cms{
       
 
       
-      // Step G: write output to file
-      e.put(output);
     }
+    // Step G: write output to file
+    e.put(output);
   }
 }
 
