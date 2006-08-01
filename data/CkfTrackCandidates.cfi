@@ -3,9 +3,9 @@
 # and the CkfTrackCandidateMaker 
 #
 
- module CkfTrackCandidates = CkfTrackCandidateMaker{
+ module ckfTrackCandidates = CkfTrackCandidateMaker{
 	
-        string SeedProducer         = "GlobalPixelSeeds"
+        string SeedProducer         = "globalPixelSeeds"
 	double ptCut                = 0.9
 	int32  maxCand              = 5
         int32  maxLostHit           = 1	
