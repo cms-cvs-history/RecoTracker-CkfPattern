@@ -1,17 +1,3 @@
-############ initialize magnetic field #########################
-include "MagneticField/Engine/data/volumeBasedMagneticField.cfi"
-
-############### initialize geometry #####################
-include "Geometry/CMSCommonData/data/cmsIdealGeometryXML.cfi"
-include "Geometry/TrackerGeometryBuilder/data/trackerGeometry.cfi"
-include "Geometry/TrackerNumberingBuilder/data/trackerNumberingGeometry.cfi"
-include "RecoTracker/GeometryESProducer/data/TrackerRecoGeometryESProducer.cfi"
-
-# KFUpdatoerESProducer
-include "TrackingTools/KalmanUpdators/data/KFUpdatorESProducer.cfi"
-
-# Chi2MeasurementEstimatorESProducer
-include "TrackingTools/KalmanUpdators/data/Chi2MeasurementEstimatorESProducer.cfi"
 
 # KFTrajectoryFitterESProducer
 include "TrackingTools/TrackFitters/data/KFTrajectoryFitterESProducer.cfi"
@@ -22,19 +8,9 @@ include "TrackingTools/TrackFitters/data/KFTrajectorySmootherESProducer.cfi"
 # KFFittingSmootherESProducer
 include "TrackingTools/TrackFitters/data/KFFittingSmootherESProducer.cfi"
 
-# PropagatorWithMaterialESProducer
-include "TrackingTools/MaterialEffects/data/MaterialPropagator.cfi"
-
-# PropagatorWithMaterialESProducer
-include "TrackingTools/MaterialEffects/data/OppositeMaterialPropagator.cfi"
-# stripCPE
-include "RecoLocalTracker/SiStripRecHitConverter/data/StripCPEfromTrackAngle.cfi"
-include "RecoLocalTracker/SiStripRecHitConverter/data/SiStripRecHitMatcher.cfi"
-
-# pixelCPE
-include "RecoLocalTracker/SiPixelRecHits/data/PixelCPEParmError.cfi"
-#TransientTrackingBuilder
-include "RecoTracker/TransientTrackingRecHit/data/TransientTrackingRecHitBuilder.cfi"
+# TrackerTrajectoryBuilders
+include "RecoTracker/CkfPattern/data/CkfTrajectoryBuilderESProducer.cff"
+include "RecoTracker/CkfPattern/data/GroupedCkfTrajectoryBuilderESProducer.cff"
 
 ############### generate CTF track candidates ############
 include "RecoTracker/CkfPattern/data/CkfTrackCandidates.cfi"

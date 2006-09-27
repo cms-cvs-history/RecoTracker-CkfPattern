@@ -1,39 +1,19 @@
 #
-# This cfi should be included to run the CkfTrajectoryBuilder
-# and the CkfTrackCandidateMaker 
+# This cfi should be included to run the CkfTrackCandidateMaker 
 #
 
- module ckfTrackCandidates = CkfTrackCandidateMaker{
-	
-        string SeedProducer         = "globalMixedSeeds"
-	double ptCut                = 0.9
-	int32  maxCand              = 5
-        int32  maxLostHit           = 1	
-	int32  maxConsecLostHit     = 1
-	double lostHitPenalty       = 30.
-	bool   intermediateCleaning = true
-        int32  minimumNumberOfHits  = 5
-	bool   alwaysUseInvalidHits = true
-        bool   seedCleaning         = false
-	string TTRHBuilder          = "WithTrackAngle"
-	string propagatorAlong      = "PropagatorWithMaterial"
-	string propagatorOpposite   = "PropagatorWithMaterialOpposite"
-	string updator              = "KFUpdator"
-	string estimator            = "Chi2"
+module ckfTrackCandidates = CkfTrackCandidateMaker
+  {	
+     #bool   seedCleaning         = false
+     string SeedProducer         = "globalMixedSeeds"
+     string TrajectoryBuilder    = "CkfTrajectoryBuilder"
 
-
-# nested parameter set for MeasurementTracker
-      PSet MeasurementTrackerParameters =
-      {
-         string PixelCPE = "PixelCPEfromTrackAngle"
-         string StripCPE = "StripCPEfromTrackAngle"
-      }	
 
 # nested parameter set for TransientInitialStateEstimator
-      PSet TransientInitialStateEstimatorParameters =
+     PSet TransientInitialStateEstimatorParameters =
       {
          string propagatorAlongTISE    = "PropagatorWithMaterial"
          string propagatorOppositeTISE = "PropagatorWithMaterialOpposite"
       }	
 
- }
+  }
