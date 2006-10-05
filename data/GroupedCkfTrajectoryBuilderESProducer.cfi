@@ -1,4 +1,4 @@
-es_module = GroupedCkfTrajectoryBuilderESProducer
+es_module GroupedCkfTrajectoryBuilder = GroupedCkfTrajectoryBuilderESProducer
 {
   string ComponentName = "GroupedCkfTrajectoryBuilder"
 
