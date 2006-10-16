@@ -5,7 +5,8 @@
 module ckfTrackCandidates = CkfTrackCandidateMaker
   {	
      #bool   seedCleaning         = false
-     string SeedProducer         = "globalMixedSeeds"
+     string SeedProducer          = "globalMixedSeeds"
+     string SeedLabel             = ""
      string TrajectoryBuilder    = "CkfTrajectoryBuilder"
 
 
