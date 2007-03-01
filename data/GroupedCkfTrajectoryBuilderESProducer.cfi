@@ -2,6 +2,8 @@ es_module GroupedCkfTrajectoryBuilder = GroupedCkfTrajectoryBuilderESProducer
 {
   string ComponentName = "GroupedCkfTrajectoryBuilder"
 
+  string MeasurementTrackerName = ""
+
   double ptCut                = 0.9
   int32  maxNumberOfHits      = -1
   int32  maxCand              = 5

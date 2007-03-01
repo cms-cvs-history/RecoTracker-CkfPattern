@@ -1,0 +1,18 @@
+
+# KFTrajectoryFitterESProducer
+include "TrackingTools/TrackFitters/data/KFTrajectoryFitterESProducer.cfi"
+
+# KFTrajectorySmootherESProducer
+include "TrackingTools/TrackFitters/data/KFTrajectorySmootherESProducer.cfi"
+
+# KFFittingSmootherESProducer
+include "TrackingTools/TrackFitters/data/KFFittingSmootherESProducer.cfi"
+
+# TrackerTrajectoryBuilders
+#include "RecoTracker/CkfPattern/data/CkfTrajectoryBuilderESProducer.cff"
+include "RecoTracker/CkfPattern/data/GroupedCkfTrajectoryBuilderESProducerTIFTIB.cff"
+
+############### generate CTF track candidates ############
+module ckfTrackCandidatesTIFTIB = ckfTrackCandidates from "RecoTracker/CkfPattern/data/CkfTrackCandidates.cfi"
+replace ckfTrackCandidatesTIFTIB.TrajectoryBuilder    	= "GroupedCkfTrajectoryBuilderTIFTIB"
+replace ckfTrackCandidatesTIFTIB.SeedProducer         = "combinatorialcosmicseedfinderTIFTIB"

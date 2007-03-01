@@ -1,0 +1,45 @@
+############ initialize magnetic field #########################
+include "Geometry/CMSCommonData/data/cmsMagneticFieldXML.cfi"
+include "MagneticField/Engine/data/uniformMagneticField.cfi"
+
+
+############### initialize geometry #####################
+include "Geometry/CMSCommonData/data/cmsIdealGeometryXML.cfi"
+include "Geometry/TrackerGeometryBuilder/data/trackerGeometry.cfi"
+include "Geometry/TrackerNumberingBuilder/data/trackerNumberingGeometry.cfi"
+include "RecoTracker/GeometryESProducer/data/TrackerRecoGeometryESProducer.cfi"
+
+# KFUpdatoerESProducer
+include "TrackingTools/KalmanUpdators/data/KFUpdatorESProducer.cfi"
+
+# Chi2MeasurementEstimatorESProducer
+include "TrackingTools/KalmanUpdators/data/Chi2MeasurementEstimatorESProducer.cfi"
+
+# PropagatorWithMaterialESProducer
+include "TrackingTools/MaterialEffects/data/MaterialPropagator.cfi"
+
+# PropagatorWithMaterialESProducer
+include "TrackingTools/MaterialEffects/data/OppositeMaterialPropagator.cfi"
+
+# stripCPE
+include "RecoLocalTracker/SiStripRecHitConverter/data/StripCPEfromTrackAngle.cfi"
+include "RecoLocalTracker/SiStripRecHitConverter/data/SiStripRecHitMatcher.cfi"
+
+# pixelCPE
+include "RecoLocalTracker/SiPixelRecHits/data/PixelCPEParmError.cfi"
+#TransientTrackingBuilder
+include "RecoTracker/TransientTrackingRecHit/data/TransientTrackingRecHitBuilder.cfi"
+
+# MeasurementTracker
+es_module CTF_TIFTIBTOB_MeasurementTracker = MeasurementTracker from "RecoTracker/MeasurementDet/data/MeasurementTrackerESProducer.cfi"
+replace CTF_TIFTIBTOB_MeasurementTracker.ComponentName        = "CTF_TIFTIBTOB"
+replace CTF_TIFTIBTOB_MeasurementTracker.pixelClusterProducer = ""
+
+##############################################
+es_module GroupedCkfTrajectoryBuilderTIFTIBTOB = GroupedCkfTrajectoryBuilder from "RecoTracker/CkfPattern/data/GroupedCkfTrajectoryBuilderESProducer.cfi"
+replace GroupedCkfTrajectoryBuilderTIFTIBTOB.MeasurementTrackerName = "CTF_TIFTIBTOB"
+replace GroupedCkfTrajectoryBuilderTIFTIBTOB.ComponentName = "GroupedCkfTrajectoryBuilderTIFTIBTOB"
+replace GroupedCkfTrajectoryBuilderTIFTIBTOB.ptCut               = 0.01
+replace GroupedCkfTrajectoryBuilderTIFTIBTOB.maxLostHit          = 3
+replace GroupedCkfTrajectoryBuilderTIFTIBTOB.maxConsecLostHit    = 1
+replace GroupedCkfTrajectoryBuilderTIFTIBTOB.minimumNumberOfHits = 4
