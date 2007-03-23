@@ -7,8 +7,11 @@ module ckfTrackCandidates = CkfTrackCandidateMaker
      #bool   seedCleaning         = false
      string SeedProducer          = "globalMixedSeeds"
      string SeedLabel             = ""
-     string TrajectoryBuilder    = "CkfTrajectoryBuilder"
-
+     string TrajectoryBuilder     = "CkfTrajectoryBuilder"
+     
+     ## set it as "none" to avoid redundant seed cleaner
+     string RedundantSeedCleaner  = "SeedCleanerByHitPosition"
+     #string RedundantSeedCleaner  = "none"
 
 # nested parameter set for TransientInitialStateEstimator
      PSet TransientInitialStateEstimatorParameters =
