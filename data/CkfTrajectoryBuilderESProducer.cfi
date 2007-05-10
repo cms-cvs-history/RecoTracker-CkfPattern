@@ -8,7 +8,11 @@ es_module CkfTrajectoryBuilder = CkfTrajectoryBuilderESProducer
   int32  maxLostHit           = 1	
   int32  maxConsecLostHit     = 1
   double lostHitPenalty       = 30.
-  bool   intermediateCleaning = true
+
+  # bool   intermediateCleaning = true
+  bool   intermediateCleaning = false
+  # ^^^ let's start being conservative ^^^
+
   int32  minimumNumberOfHits  = 5
   bool   alwaysUseInvalidHits = true
 
