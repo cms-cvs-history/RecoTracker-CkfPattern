@@ -1,6 +1,6 @@
 ############ initialize magnetic field #########################
 #include "Geometry/CMSCommonData/data/cmsMagneticFieldXML.cfi"
-include "MagneticField/Engine/data/uniformMagneticField.cfi"
+include "MagneticField/Engine/data/volumeBasedMagneticField.cfi"
 
 
 ############### initialize geometry #####################
@@ -31,15 +31,15 @@ include "RecoLocalTracker/SiPixelRecHits/data/PixelCPEParmError.cfi"
 include "RecoTracker/TransientTrackingRecHit/data/TransientTrackingRecHitBuilder.cfi"
 
 # MeasurementTracker
-es_module CTF_TIFTIB_MeasurementTracker = MeasurementTracker from "RecoTracker/MeasurementDet/data/MeasurementTrackerESProducer.cfi"
-replace CTF_TIFTIB_MeasurementTracker.ComponentName        = "CTF_TIFTIB"
-replace CTF_TIFTIB_MeasurementTracker.pixelClusterProducer = ""
+es_module CTF_P5_MeasurementTracker = MeasurementTracker from "RecoTracker/MeasurementDet/data/MeasurementTrackerESProducer.cfi"
+replace CTF_P5_MeasurementTracker.ComponentName        = "CTF_P5"
+replace CTF_P5_MeasurementTracker.pixelClusterProducer = ""
 
 ##############################################
-es_module GroupedCkfTrajectoryBuilderTIFTIB = GroupedCkfTrajectoryBuilder from "RecoTracker/CkfPattern/data/GroupedCkfTrajectoryBuilderESProducer.cfi"
-replace GroupedCkfTrajectoryBuilderTIFTIB.MeasurementTrackerName = "CTF_TIFTIB"
-replace GroupedCkfTrajectoryBuilderTIFTIB.ComponentName = "GroupedCkfTrajectoryBuilderTIFTIB"
-replace GroupedCkfTrajectoryBuilderTIFTIB.ptCut               = 0.01
-replace GroupedCkfTrajectoryBuilderTIFTIB.maxLostHit          = 3
-replace GroupedCkfTrajectoryBuilderTIFTIB.maxConsecLostHit    = 1
-replace GroupedCkfTrajectoryBuilderTIFTIB.minimumNumberOfHits = 4
+es_module GroupedCkfTrajectoryBuilderP5 = GroupedCkfTrajectoryBuilder from "RecoTracker/CkfPattern/data/GroupedCkfTrajectoryBuilderESProducer.cfi"
+replace GroupedCkfTrajectoryBuilderP5.MeasurementTrackerName = "CTF_P5"
+replace GroupedCkfTrajectoryBuilderP5.ComponentName = "GroupedCkfTrajectoryBuilderP5"
+replace GroupedCkfTrajectoryBuilderP5.ptCut               = 0.01
+replace GroupedCkfTrajectoryBuilderP5.maxLostHit          = 4
+replace GroupedCkfTrajectoryBuilderP5.maxConsecLostHit    = 3
+replace GroupedCkfTrajectoryBuilderP5.minimumNumberOfHits = 4
