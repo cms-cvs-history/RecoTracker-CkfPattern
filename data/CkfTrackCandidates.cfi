@@ -20,8 +20,4 @@ module ckfTrackCandidates = CkfTrackCandidateMaker
          string propagatorOppositeTISE = "PropagatorWithMaterialOpposite"
       }	
 
-  PSet NavigationPSet = {
-	       string ComponentName = "SimpleNavigationSchool"
-  }
-
   }
