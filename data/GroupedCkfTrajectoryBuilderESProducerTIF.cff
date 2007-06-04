@@ -33,7 +33,7 @@ include "RecoTracker/TransientTrackingRecHit/data/TransientTrackingRecHitBuilder
 # MeasurementTracker
 es_module CTF_TIF_MeasurementTracker = MeasurementTracker from "RecoTracker/MeasurementDet/data/MeasurementTrackerESProducer.cfi"
 replace CTF_TIF_MeasurementTracker.ComponentName        = "CTF_TIF"
-#replace CTF_TIF_MeasurementTracker.pixelClusterProducer = ""
+replace CTF_TIF_MeasurementTracker.pixelClusterProducer = ""
 
 ##############################################
 es_module GroupedCkfTrajectoryBuilderTIF = GroupedCkfTrajectoryBuilder from "RecoTracker/CkfPattern/data/GroupedCkfTrajectoryBuilderESProducer.cfi"
