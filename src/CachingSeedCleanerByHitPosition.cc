@@ -12,9 +12,6 @@ void CachingSeedCleanerByHitPosition::done() {
     //calls_ = comps_ = tracks_ = 0;
 
     theVault.clear(); theCache.clear();
-
-    std::vector<Trajectory::RecHitContainer> swapper;
-    swapper.swap(theVault); // this should clean the vault even more
 }
 
 

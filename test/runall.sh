@@ -7,13 +7,7 @@ SimHitsToDigis.cfg
 DigisToRecHits.cfg          
 RecHitsToSeeds.cfg  
 SeedToTrackCandidates.cfg  
-TrackCandidatesToTracks.cfg
-DigisToTrackCandidates.cfg
-RecHitsToTracks_PixelOnlySeeded.cfg  
-RecHitsToTracks_PixelLessSeeded.cfg  
-RecHitsToTracks_MixedSeeded.cfg
-regionalTracking.cfg  
-"
+TrackCandidatesToTracks.cfg"
 
 tests=`echo $testsTracking`
 
