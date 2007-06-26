@@ -1,6 +1,7 @@
 es_module CkfTrajectoryBuilder = CkfTrajectoryBuilderESProducer
 {
   string ComponentName = "CkfTrajectoryBuilder"
+  string MeasurementTrackerName = ""
 
   double ptCut                = 0.9
   int32  maxNumberOfHits      = -1
