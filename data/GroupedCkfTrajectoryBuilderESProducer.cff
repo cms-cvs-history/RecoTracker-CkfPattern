@@ -20,6 +20,7 @@ include "TrackingTools/MaterialEffects/data/MaterialPropagator.cfi"
 include "TrackingTools/MaterialEffects/data/OppositeMaterialPropagator.cfi"
 
 # stripCPE
+include "RecoLocalTracker/SiStripRecHitConverter/data/StripCPE.cfi"
 include "RecoLocalTracker/SiStripRecHitConverter/data/StripCPEfromTrackAngle.cfi"
 include "RecoLocalTracker/SiStripRecHitConverter/data/SiStripRecHitMatcher.cfi"
 
