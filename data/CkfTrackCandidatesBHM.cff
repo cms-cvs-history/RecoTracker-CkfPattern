@@ -1,0 +1,41 @@
+#special propagator
+include "TrackingTools/GeomPropagators/data/BeamHaloPropagator.cff"
+
+# KFTrajectoryFitterESProducer
+#include "TrackingTools/TrackFitters/data/KFTrajectoryFitterESProducer.cfi"
+#es_module KFTrajectoryFitterBeamHalo = KFTrajectoryFitter from "TrackingTools/TrackFitters/data/KFTrajectoryFitterESProducer.cfi"
+#replace KFTrajectoryFitterBeamHalo.ComponentName = "KFFitterBH"
+#replace KFTrajectoryFitterBeamHalo.Propagator = "BeamHaloPropagatorAlong"
+
+# KFTrajectorySmootherESProducer
+#include "TrackingTools/TrackFitters/data/KFTrajectorySmootherESProducer.cfi"
+#es_module KFTrajectorySmootherBeamHalo = KFTrajectorySmoother from "TrackingTools/TrackFitters/data/KFTrajectorySmootherESProducer.cfi"
+#replace KFTrajectorySmootherBeamHalo.ComponentName = "KFSmootherBH"
+#replace KFTrajectorySmootherBeamHalo.Propagator = "BeamHaloPropagatorAlong"
+
+# KFFittingSmootherESProducer
+#include "TrackingTools/TrackFitters/data/KFFittingSmootherESProducer.cfi"
+#es_module KFFittingSmootherBeamHalo = KFFittingSmoother from "TrackingTools/TrackFitters/data/KFFittingSmootherESProducer.cfi"
+#replace KFFittingSmootherBeamHalo.ComponentName = "KFFittingSmootherBH"
+#replace KFFittingSmootherBeamHalo.Fitter = "KFFitterBH"
+#replace KFFittingSmootherBeamHalo.Smoother = "KFSmootherBH"
+
+# TrackerTrajectoryBuilders
+# to get the dependencies
+include "RecoTracker/CkfPattern/data/CkfTrajectoryBuilderESProducer.cff"
+#include "RecoTracker/CkfPattern/data/GroupedCkfTrajectoryBuilderESProducer.cff"
+# clone the trajectory builder
+es_module CkfTrajectoryBuilderBeamHalo = CkfTrajectoryBuilder from "RecoTracker/CkfPattern/data/CkfTrajectoryBuilderESProducer.cfi"
+#es_module CkfTrajectoryBuilderBeamHalo = GroupedCkfTrajectoryBuilder from "RecoTracker/CkfPattern/data/GroupedCkfTrajectoryBuilderESProducer.cfi"
+replace CkfTrajectoryBuilderBeamHalo.ComponentName = "CkfTrajectoryBuilderBH"
+replace CkfTrajectoryBuilderBeamHalo.propagatorAlong = "BeamHaloPropagatorAlong"
+replace CkfTrajectoryBuilderBeamHalo.propagatorOpposite = "BeamHaloPropagatorOpposite"
+replace CkfTrajectoryBuilderBeamHalo.minimumNumberOfHits = 4
+
+############## generate CTF track candidates ############
+module ckfTrackCandidatesBeamHaloMuon = ckfTrackCandidates from "RecoTracker/CkfPattern/data/CkfTrackCandidates.cfi"
+replace ckfTrackCandidatesBeamHaloMuon.SeedProducer = combinatorialbeamhaloseedfinder
+replace ckfTrackCandidatesBeamHaloMuon.NavigationPSet.ComponentName = "BeamHaloNavigationSchool"
+replace ckfTrackCandidatesBeamHaloMuon.TransientInitialStateEstimatorParameters.propagatorAlongTISE = "BeamHaloPropagatorAlong"
+replace ckfTrackCandidatesBeamHaloMuon.TransientInitialStateEstimatorParameters.propagatorOppositeTISE = "BeamHaloPropagatorOpposite"
+replace ckfTrackCandidatesBeamHaloMuon.TrajectoryBuilder = "CkfTrajectoryBuilderBH"
