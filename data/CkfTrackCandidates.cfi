@@ -13,7 +13,7 @@ module ckfTrackCandidates = CkfTrackCandidateMaker
      string RedundantSeedCleaner  = "CachingSeedCleanerBySharedInput"
      #string RedundantSeedCleaner  = "none"
 
-# nested parameter set for TransientInitialStateEstimator
+     # nested parameter set for TransientInitialStateEstimator
      PSet TransientInitialStateEstimatorParameters =
       {
          string propagatorAlongTISE    = "PropagatorWithMaterial"
