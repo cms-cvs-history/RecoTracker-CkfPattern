@@ -4,7 +4,7 @@ es_module CkfTrajectoryBuilder = CkfTrajectoryBuilderESProducer
   string MeasurementTrackerName = ""
 
   ### nested parameter set for TrackerTrajectoryBuilder
-  PSet TrackerTrajectoryBuilderParameters =
+  PSet BaseCkfTrajectoryBuilderParameters =
   {
       int32  maxLostHit           = 1	
       int32  maxConsecLostHit     = 1
