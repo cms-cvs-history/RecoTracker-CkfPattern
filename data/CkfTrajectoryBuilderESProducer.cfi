@@ -9,6 +9,7 @@ es_module CkfTrajectoryBuilder = CkfTrajectoryBuilderESProducer
       int32  minimumNumberOfHits  = 5	
       double ptCut                = 0.9
       int32  maxNumberOfHits      = -1
+      double chargeSignificance   = -1.
   ###	
 
 
