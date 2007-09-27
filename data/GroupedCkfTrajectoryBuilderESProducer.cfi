@@ -4,15 +4,13 @@ es_module GroupedCkfTrajectoryBuilder = GroupedCkfTrajectoryBuilderESProducer
 
   string MeasurementTrackerName = ""
 
-  ### nested parameter set for TrackerTrajectoryBuilder
-  PSet BaseCkfTrajectoryBuilderParameters =
-  {
+  ### BaseCkfTrajectoryBuilder Parameters 
       int32  maxLostHit           = 1	
       int32  maxConsecLostHit     = 1
       int32  minimumNumberOfHits  = 5	
       double ptCut                = 0.9
       int32  maxNumberOfHits      = -1
-  }	
+  ###	
 
 
 
