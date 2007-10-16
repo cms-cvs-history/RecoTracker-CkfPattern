@@ -2,5 +2,8 @@
 include "RecoTracker/CkfPattern/data/CkfTrajectoryBuilderESProducer.cff"
 include "RecoTracker/CkfPattern/data/GroupedCkfTrajectoryBuilderESProducer.cff"
 
+# TrajectoryCleaning
+include "TrackingTools/TrajectoryCleaning/data/TrajectoryCleanerBySharedHits.cfi"
+
 ############### generate CTF track candidates ############
 include "RecoTracker/CkfPattern/data/CkfTrackCandidates.cfi"

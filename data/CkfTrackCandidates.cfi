@@ -8,6 +8,8 @@ module ckfTrackCandidates = CkfTrackCandidateMaker
      string SeedProducer          = "globalMixedSeeds"
      string SeedLabel             = ""
      string TrajectoryBuilder     = "GroupedCkfTrajectoryBuilder"
+
+     string TrajectoryCleaner     = "TrajectoryCleanerBySharedHits"
      
      ## set it as "none" to avoid redundant seed cleaner
      string RedundantSeedCleaner  = "CachingSeedCleanerBySharedInput"
