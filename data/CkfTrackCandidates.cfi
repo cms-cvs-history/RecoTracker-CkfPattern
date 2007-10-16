@@ -10,7 +10,8 @@ module ckfTrackCandidates = CkfTrackCandidateMaker
      string TrajectoryBuilder     = "GroupedCkfTrajectoryBuilder"
 
      string TrajectoryCleaner     = "TrajectoryCleanerBySharedHits"
-     
+     string NavigationSchool      = "SimpleNavigationSchool"
+
      ## set it as "none" to avoid redundant seed cleaner
      string RedundantSeedCleaner  = "CachingSeedCleanerBySharedInput"
      #string RedundantSeedCleaner  = "none"
@@ -21,9 +22,5 @@ module ckfTrackCandidates = CkfTrackCandidateMaker
          string propagatorAlongTISE    = "PropagatorWithMaterial"
          string propagatorOppositeTISE = "PropagatorWithMaterialOpposite"
       }	
-
-  PSet NavigationPSet = {
-	       string ComponentName = "SimpleNavigationSchool"
-  }
 
   }
