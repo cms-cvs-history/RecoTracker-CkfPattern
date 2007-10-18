@@ -32,5 +32,8 @@ include "RecoTracker/TransientTrackingRecHit/data/TransientTrackingRecHitBuilder
 # MeasurementTracker
 include "RecoTracker/MeasurementDet/data/MeasurementTrackerESProducer.cfi"
 
+# trajectory filtering
+include "TrackingTools/TrajectoryFiltering/data/TrajectoryFilterESProducer.cff"
+
 ##############################################
 include "RecoTracker/CkfPattern/data/GroupedCkfTrajectoryBuilderESProducer.cfi"

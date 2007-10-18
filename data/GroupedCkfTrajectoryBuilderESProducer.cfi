@@ -3,17 +3,8 @@ es_module GroupedCkfTrajectoryBuilder = GroupedCkfTrajectoryBuilderESProducer
   string ComponentName = "GroupedCkfTrajectoryBuilder"
 
   string MeasurementTrackerName = ""
-
-  ### BaseCkfTrajectoryBuilder Parameters 
-      int32  maxLostHit           = 1	
-      int32  maxConsecLostHit     = 1
-      int32  minimumNumberOfHits  = 5	
-      double ptCut                = 0.9
-      int32  maxNumberOfHits      = -1
-      double chargeSignificance   = -1.
-  ###	
-
-
+#  string trajectoryFilterName = "baseCkfTrajectoryFilter"
+  string trajectoryFilterName = "ckfBaseTrajectoryFilter"
 
   int32  maxCand              = 5
   double lostHitPenalty       = 30.

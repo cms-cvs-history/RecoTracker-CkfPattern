@@ -1,17 +1,9 @@
 es_module CkfTrajectoryBuilder = CkfTrajectoryBuilderESProducer
 {
   string ComponentName = "CkfTrajectoryBuilder"
+
   string MeasurementTrackerName = ""
-
-  ### PSet BaseCkfTrajectoryBuilder Parameters 
-      int32  maxLostHit           = 1	
-      int32  maxConsecLostHit     = 1
-      int32  minimumNumberOfHits  = 5	
-      double ptCut                = 0.9
-      int32  maxNumberOfHits      = -1
-      double chargeSignificance   = -1.
-  ###	
-
+  string trajectoryFilterName = "baseCkfTrajectoryFilter"
 
   int32  maxCand              = 5
   double lostHitPenalty       = 30.
