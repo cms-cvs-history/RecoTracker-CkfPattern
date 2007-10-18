@@ -14,6 +14,6 @@ include "RecoTracker/CkfPattern/data/GroupedCkfTrajectoryBuilderESProducerTIFTIB
 
 ############### generate CTF track candidates ############
 module ckfTrackCandidatesTIFTIB = ckfTrackCandidates from "RecoTracker/CkfPattern/data/CkfTrackCandidates.cfi"
-replace ckfTrackCandidatesTIFTIB.NavigationPSet.ComponentName = "CosmicNavigationSchool"
+replace ckfTrackCandidatesTIFTIB.NavigationSchool = "CosmicNavigationSchool"
 replace ckfTrackCandidatesTIFTIB.TrajectoryBuilder    	= "GroupedCkfTrajectoryBuilderTIFTIB"
 replace ckfTrackCandidatesTIFTIB.SeedProducer         = "combinatorialcosmicseedfinderTIFTIB"

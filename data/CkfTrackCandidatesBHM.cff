@@ -35,7 +35,7 @@ replace CkfTrajectoryBuilderBeamHalo.minimumNumberOfHits = 4
 ############## generate CTF track candidates ############
 module ckfTrackCandidatesBeamHaloMuon = ckfTrackCandidates from "RecoTracker/CkfPattern/data/CkfTrackCandidates.cfi"
 replace ckfTrackCandidatesBeamHaloMuon.SeedProducer = combinatorialbeamhaloseedfinder
-replace ckfTrackCandidatesBeamHaloMuon.NavigationPSet.ComponentName = "BeamHaloNavigationSchool"
+replace ckfTrackCandidatesBeamHaloMuon.NavigationSchool = "BeamHaloNavigationSchool"
 replace ckfTrackCandidatesBeamHaloMuon.TransientInitialStateEstimatorParameters.propagatorAlongTISE = "BeamHaloPropagatorAlong"
 replace ckfTrackCandidatesBeamHaloMuon.TransientInitialStateEstimatorParameters.propagatorOppositeTISE = "BeamHaloPropagatorOpposite"
 replace ckfTrackCandidatesBeamHaloMuon.TrajectoryBuilder = "CkfTrajectoryBuilderBH"
