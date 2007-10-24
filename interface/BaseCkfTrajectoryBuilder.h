@@ -49,7 +49,6 @@ protected:
 
 public:
 
-  typedef std::vector<Trajectory> TrajectoryContainer;
   typedef std::vector<TempTrajectory> TempTrajectoryContainer;
   typedef TrajectoryContainer::iterator TrajectoryIterator;
   
