@@ -3,7 +3,7 @@ es_module CkfTrajectoryBuilder = CkfTrajectoryBuilderESProducer
   string ComponentName = "CkfTrajectoryBuilder"
 
   string MeasurementTrackerName = ""
-  string trajectoryFilterName = "baseCkfTrajectoryFilter"
+  string trajectoryFilterName = "ckfBaseTrajectoryFilter"
 
   int32  maxCand              = 5
   double lostHitPenalty       = 30.
