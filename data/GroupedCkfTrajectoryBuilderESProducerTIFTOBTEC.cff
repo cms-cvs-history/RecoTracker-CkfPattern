@@ -36,11 +36,20 @@ es_module CTF_TIFTOBTEC_MeasurementTracker = MeasurementTracker from "RecoTracke
 replace CTF_TIFTOBTEC_MeasurementTracker.ComponentName        = "CTF_TIFTOBTEC"
 replace CTF_TIFTOBTEC_MeasurementTracker.pixelClusterProducer = ""
 
+# trajectory filtering
+include "TrackingTools/TrajectoryFiltering/data/TrajectoryFilterESProducer.cff"
+
+es_module ckfBaseTrajectoryFilterTIFTOBTEC = trajectoryFilterESProducer from "TrackingTools/TrajectoryFiltering/data/TrajectoryFilterESProducer.cfi"
+replace ckfBaseTrajectoryFilterTIFTOBTEC.ComponentName = "ckfBaseTrajectoryFilterTIFTOBTEC"
+replace ckfBaseTrajectoryFilterTIFTOBTEC.filterPset.minPt = 0.01
+#replace ckfBaseTrajectoryFilterTIFTOBTEC.filterPset.maxLostHits = 3
+#replace ckfBaseTrajectoryFilterTIFTOBTEC.filterPset.maxConsecLostHits = 1
+#replace ckfBaseTrajectoryFilterTIFTOBTEC.filterPset.minimumNumberOfHits =  4
+
+
+
 ##############################################
 es_module GroupedCkfTrajectoryBuilderTIFTOBTEC = GroupedCkfTrajectoryBuilder from "RecoTracker/CkfPattern/data/GroupedCkfTrajectoryBuilderESProducer.cfi"
 replace GroupedCkfTrajectoryBuilderTIFTOBTEC.MeasurementTrackerName = "CTF_TIFTOBTEC"
-replace GroupedCkfTrajectoryBuilderTIFTOBTEC.ComponentName          = "GroupedCkfTrajectoryBuilderTIFTOBTEC"
-replace GroupedCkfTrajectoryBuilderTIFTOBTEC.ptCut                  = 0.01
-#replace GroupedCkfTrajectoryBuilderTIFTOBTEC.maxLostHit             = 3
-#replace GroupedCkfTrajectoryBuilderTIFTOBTEC.maxConsecLostHit       = 1
-#replace GroupedCkfTrajectoryBuilderTIFTOBTEC.minimumNumberOfHits    = 4
+replace GroupedCkfTrajectoryBuilderTIFTOBTEC.ComponentName = "GroupedCkfTrajectoryBuilderTIFTOBTEC"
+replace GroupedCkfTrajectoryBuilderTIFTOBTEC.trajectoryFilterName   = "ckfBaseTrajectoryFilterTIFTOBTEC"

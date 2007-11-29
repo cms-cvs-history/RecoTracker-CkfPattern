@@ -23,6 +23,9 @@ include "TrackingTools/GeomPropagators/data/BeamHaloPropagator.cff"
 # TrackerTrajectoryBuilders
 # to get the dependencies
 include "RecoTracker/CkfPattern/data/CkfTrajectoryBuilderESProducer.cff"
+es_module ckfTrajectoryFilterBeamHaloMuon = trajectoryFilterESProducer from "TrackingTools/TrajectoryFiltering/data/TrajectoryFilterESProducer.cfi"
+replace ckfTrajectoryFilterBeamHaloMuon.ComponentName = "ckfTrajectoryFilterBeamHaloMuon"
+replace ckfTrajectoryFilterBeamHaloMuon.filterPset.minimumNumberOfHits = 4
 #include "RecoTracker/CkfPattern/data/GroupedCkfTrajectoryBuilderESProducer.cff"
 # clone the trajectory builder
 es_module CkfTrajectoryBuilderBeamHalo = CkfTrajectoryBuilder from "RecoTracker/CkfPattern/data/CkfTrajectoryBuilderESProducer.cfi"
@@ -30,7 +33,7 @@ es_module CkfTrajectoryBuilderBeamHalo = CkfTrajectoryBuilder from "RecoTracker/
 replace CkfTrajectoryBuilderBeamHalo.ComponentName = "CkfTrajectoryBuilderBH"
 replace CkfTrajectoryBuilderBeamHalo.propagatorAlong = "BeamHaloPropagatorAlong"
 replace CkfTrajectoryBuilderBeamHalo.propagatorOpposite = "BeamHaloPropagatorOpposite"
-replace CkfTrajectoryBuilderBeamHalo.minimumNumberOfHits = 4
+replace CkfTrajectoryBuilderBeamHalo.trajectoryFilterName = "ckfTrajectoryFilterBeamHaloMuon"
 
 ############## generate CTF track candidates ############
 module ckfTrackCandidatesBeamHaloMuon = ckfTrackCandidates from "RecoTracker/CkfPattern/data/CkfTrackCandidates.cfi"

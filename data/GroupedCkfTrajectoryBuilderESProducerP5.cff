@@ -35,12 +35,19 @@ include "RecoTracker/TransientTrackingRecHit/data/TransientTrackingRecHitBuilder
 es_module CTF_P5_MeasurementTracker = MeasurementTracker from "RecoTracker/MeasurementDet/data/MeasurementTrackerESProducer.cfi"
 replace CTF_P5_MeasurementTracker.ComponentName        = "CTF_P5"
 #replace CTF_P5_MeasurementTracker.pixelClusterProducer = ""
+# trajectory filtering
+include "TrackingTools/TrajectoryFiltering/data/TrajectoryFilterESProducer.cff"
+
+es_module ckfBaseTrajectoryFilterP5 = trajectoryFilterESProducer from "TrackingTools/TrajectoryFiltering/data/TrajectoryFilterESProducer.cfi"
+replace ckfBaseTrajectoryFilterP5.ComponentName = "ckfBaseTrajectoryFilterP5"
+#replace ckfBaseTrajectoryFilterP5.filterPset.minPt = 0.01
+#replace ckfBaseTrajectoryFilterP5.filterPset.maxLostHits = 4
+#replace ckfBaseTrajectoryFilterP5.filterPset.maxConsecLostHits = 3
+#replace ckfBaseTrajectoryFilterP5.filterPset.minimumNumberOfHits =  4
+
 
 ##############################################
 es_module GroupedCkfTrajectoryBuilderP5 = GroupedCkfTrajectoryBuilder from "RecoTracker/CkfPattern/data/GroupedCkfTrajectoryBuilderESProducer.cfi"
 replace GroupedCkfTrajectoryBuilderP5.MeasurementTrackerName = "CTF_P5"
 replace GroupedCkfTrajectoryBuilderP5.ComponentName = "GroupedCkfTrajectoryBuilderP5"
-#replace GroupedCkfTrajectoryBuilderP5.ptCut               = 0.01
-#replace GroupedCkfTrajectoryBuilderP5.maxLostHit          = 4
-#replace GroupedCkfTrajectoryBuilderP5.maxConsecLostHit    = 3
-#replace GroupedCkfTrajectoryBuilderP5.minimumNumberOfHits = 4
+replace GroupedCkfTrajectoryBuilderP5.trajectoryFilterName   = "ckfBaseTrajectoryFilterP5"
