@@ -43,4 +43,4 @@ replace GroupedCkfTrajectoryBuilderTIF.ComponentName = "GroupedCkfTrajectoryBuil
 replace GroupedCkfTrajectoryBuilderTIF.ptCut               = 0.01
 #replace GroupedCkfTrajectoryBuilderTIF.maxLostHit          = 3
 #replace GroupedCkfTrajectoryBuilderTIF.maxConsecLostHit    = 1
-#replace GroupedCkfTrajectoryBuilderTIF.minimumNumberOfHits = 4
+replace GroupedCkfTrajectoryBuilderTIF.minimumNumberOfHits = 4
