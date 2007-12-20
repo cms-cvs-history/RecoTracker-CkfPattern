@@ -1,0 +1,13 @@
+# TrackerTrajectoryBuilders
+include "RecoTracker/CkfPattern/data/CkfTrajectoryBuilderESProducer.cff"
+
+# TrajectoryCleaning
+include "TrackingTools/TrajectoryCleaning/data/TrajectoryCleanerBySharedHits.cfi"
+
+# navigation school
+include "RecoTracker/TkNavigation/data/NavigationSchoolESProducer.cff"
+
+############### generate CTF track candidates ############
+module ckfTrackCandidatesNoOverlaps = ckfTrackCandidates from "RecoTracker/CkfPattern/data/CkfTrackCandidates.cfi"
+replace ckfTrackCandidatesNoOverlaps.TrajectoryBuilder = "CkfTrajectoryBuilder"
+
