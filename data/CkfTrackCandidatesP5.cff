@@ -1,4 +1,3 @@
-
 # KFTrajectoryFitterESProducer
 include "TrackingTools/TrackFitters/data/KFTrajectoryFitterESProducer.cfi"
 
@@ -11,6 +10,12 @@ include "TrackingTools/TrackFitters/data/KFFittingSmootherESProducer.cfi"
 # TrackerTrajectoryBuilders
 #include "RecoTracker/CkfPattern/data/CkfTrajectoryBuilderESProducerP5.cff"
 include "RecoTracker/CkfPattern/data/GroupedCkfTrajectoryBuilderESProducerP5.cff"
+
+# TrajectoryCleaning
+include "TrackingTools/TrajectoryCleaning/data/TrajectoryCleanerBySharedHits.cfi"
+
+# Navigation School
+include "RecoTracker/TkNavigation/data/NavigationSchoolESProducer.cff"
 
 ############### generate CTF track candidates ############
 module ckfTrackCandidatesP5 = ckfTrackCandidates from "RecoTracker/CkfPattern/data/CkfTrackCandidates.cfi"
