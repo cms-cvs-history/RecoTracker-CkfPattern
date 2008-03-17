@@ -1,5 +1,5 @@
 #
-# This cfi should be included to run the CkfTrackCandidateMaker 
+# This cfi should be included to run the CkfTrajectoryMaker 
 #
 
 module ckfTrajectories = CkfTrajectoryMaker
@@ -15,6 +15,8 @@ module ckfTrajectories = CkfTrajectoryMaker
      ## set it as "none" to avoid redundant seed cleaner
      string RedundantSeedCleaner  = "CachingSeedCleanerBySharedInput"
      #string RedundantSeedCleaner  = "none"
+
+     bool useHitsSplitting = false
 
      # nested parameter set for TransientInitialStateEstimator
      PSet TransientInitialStateEstimatorParameters =
