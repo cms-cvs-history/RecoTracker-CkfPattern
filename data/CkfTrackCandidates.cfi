@@ -17,6 +17,7 @@ module ckfTrackCandidates = CkfTrackCandidateMaker
      #string RedundantSeedCleaner  = "none"
 
      bool useHitsSplitting = false
+     bool doSeedingRegionRebuilding = false
 
      # nested parameter set for TransientInitialStateEstimator
      PSet TransientInitialStateEstimatorParameters =
