@@ -26,4 +26,5 @@ module ckfTrajectories = CkfTrajectoryMaker
       }	
 
 	bool trackCandidateAlso = false
+        bool doSeedingRegionRebuilding = false
   }
