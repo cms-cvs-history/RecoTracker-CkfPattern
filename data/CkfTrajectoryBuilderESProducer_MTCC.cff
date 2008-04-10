@@ -29,7 +29,7 @@ include "RecoLocalTracker/SiStripRecHitConverter/data/SiStripRecHitMatcher.cfi"
 include "RecoTracker/TransientTrackingRecHit/data/TransientTrackingRecHitBuilder.cfi"
 
 # MeasurementTracker
-include "RecoTracker/MeasurementDet/data/MeasurementTrackerESProducer.cfi"
+include "RecoTracker/MeasurementDet/data/MeasurementTrackerESProducer.cff"
 
 ##############################################
 include "RecoTracker/CkfPattern/data/CkfTrajectoryBuilderESProducer.cfi"

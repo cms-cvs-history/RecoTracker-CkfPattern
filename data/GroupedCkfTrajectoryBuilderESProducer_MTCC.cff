@@ -31,7 +31,7 @@ include "RecoLocalTracker/SiPixelRecHits/data/PixelCPEParmError.cfi"
 include "RecoTracker/TransientTrackingRecHit/data/TransientTrackingRecHitBuilder.cfi"
 
 # MeasurementTracker
-include "RecoTracker/MeasurementDet/data/MeasurementTrackerESProducer.cfi"
+include "RecoTracker/MeasurementDet/data/MeasurementTrackerESProducer.cff"
 
 ##############################################
 include "RecoTracker/CkfPattern/data/GroupedCkfTrajectoryBuilderESProducer.cfi"
