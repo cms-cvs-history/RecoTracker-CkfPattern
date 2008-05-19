@@ -16,7 +16,7 @@ module ckfTrackCandidates = CkfTrackCandidateMaker
      string RedundantSeedCleaner  = "CachingSeedCleanerBySharedInput"
      #string RedundantSeedCleaner  = "none"
 
-     bool useHitsSplitting = false
+     bool useHitsSplitting = true
      bool doSeedingRegionRebuilding = false
 
      # nested parameter set for TransientInitialStateEstimator
