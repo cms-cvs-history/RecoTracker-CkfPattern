@@ -34,7 +34,7 @@ include "RecoTracker/TransientTrackingRecHit/data/TransientTrackingRecHitBuilder
 # MeasurementTracker
 es_module CTF_P5_MeasurementTracker = MeasurementTracker from "RecoTracker/MeasurementDet/data/MeasurementTrackerESProducer.cfi"
 replace CTF_P5_MeasurementTracker.ComponentName        = "CTF_P5"
-replace CTF_P5_MeasurementTracker.pixelClusterProducer = ""
+#replace CTF_P5_MeasurementTracker.pixelClusterProducer = ""
 # trajectory filtering
 include "TrackingTools/TrajectoryFiltering/data/TrajectoryFilterESProducer.cff"
 
