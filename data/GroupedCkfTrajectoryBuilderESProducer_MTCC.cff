@@ -1,5 +1,4 @@
 ############ initialize magnetic field #########################
-#include "MagneticField/Engine/data/volumeBasedMagneticField.cfi"
 include "MagneticField/Engine/data/uniformMagneticField.cfi"
 
 ############### initialize geometry #####################
