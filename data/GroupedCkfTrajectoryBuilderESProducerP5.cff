@@ -39,9 +39,9 @@ include "TrackingTools/TrajectoryFiltering/data/TrajectoryFilterESProducer.cff"
 
 es_module ckfBaseTrajectoryFilterP5 = trajectoryFilterESProducer from "TrackingTools/TrajectoryFiltering/data/TrajectoryFilterESProducer.cfi"
 replace ckfBaseTrajectoryFilterP5.ComponentName = "ckfBaseTrajectoryFilterP5"
-#replace ckfBaseTrajectoryFilterP5.filterPset.minPt = 0.01
-#replace ckfBaseTrajectoryFilterP5.filterPset.maxLostHits = 4
-#replace ckfBaseTrajectoryFilterP5.filterPset.maxConsecLostHits = 3
+replace ckfBaseTrajectoryFilterP5.filterPset.minPt = 0.5
+replace ckfBaseTrajectoryFilterP5.filterPset.maxLostHits = 4
+replace ckfBaseTrajectoryFilterP5.filterPset.maxConsecLostHits = 3
 #replace ckfBaseTrajectoryFilterP5.filterPset.minimumNumberOfHits =  4
 
 
