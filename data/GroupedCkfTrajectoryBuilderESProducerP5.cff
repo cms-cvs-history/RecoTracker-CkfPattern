@@ -1,6 +1,5 @@
 ############ initialize magnetic field #########################
 #include "Geometry/CMSCommonData/data/cmsMagneticFieldXML.cfi"
-include "MagneticField/Engine/data/volumeBasedMagneticField.cfi"
 
 
 ############### initialize geometry #####################
@@ -34,15 +33,15 @@ include "RecoTracker/TransientTrackingRecHit/data/TransientTrackingRecHitBuilder
 # MeasurementTracker
 es_module CTF_P5_MeasurementTracker = MeasurementTracker from "RecoTracker/MeasurementDet/data/MeasurementTrackerESProducer.cfi"
 replace CTF_P5_MeasurementTracker.ComponentName        = "CTF_P5"
-replace CTF_P5_MeasurementTracker.pixelClusterProducer = ""
+#replace CTF_P5_MeasurementTracker.pixelClusterProducer = ""
 # trajectory filtering
 include "TrackingTools/TrajectoryFiltering/data/TrajectoryFilterESProducer.cff"
 
 es_module ckfBaseTrajectoryFilterP5 = trajectoryFilterESProducer from "TrackingTools/TrajectoryFiltering/data/TrajectoryFilterESProducer.cfi"
 replace ckfBaseTrajectoryFilterP5.ComponentName = "ckfBaseTrajectoryFilterP5"
-#replace ckfBaseTrajectoryFilterP5.filterPset.minPt = 0.01
-#replace ckfBaseTrajectoryFilterP5.filterPset.maxLostHits = 4
-#replace ckfBaseTrajectoryFilterP5.filterPset.maxConsecLostHits = 3
+replace ckfBaseTrajectoryFilterP5.filterPset.minPt = 0.5
+replace ckfBaseTrajectoryFilterP5.filterPset.maxLostHits = 4
+replace ckfBaseTrajectoryFilterP5.filterPset.maxConsecLostHits = 3
 #replace ckfBaseTrajectoryFilterP5.filterPset.minimumNumberOfHits =  4
 
 
