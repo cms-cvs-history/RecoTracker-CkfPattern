@@ -85,14 +85,13 @@ GroupedCkfTrajectoryBuilder(const edm::ParameterSet&              conf,
   theRequireSeedHitsInRebuild = conf.getParameter<bool>("requireSeedHitsInRebuild");
   theMinNrOfHitsForRebuild    = max(0,conf.getParameter<int>("minNrOfHitsForRebuild"));
 
-  /* ======= B.M. to be ported layer ===========
+  /* ======= B.M. to be ported later =======
   bool setOK = thePropagator->setMaxDirectionChange(1.6);
   if (!setOK) 
     cout  << "GroupedCkfTrajectoryBuilder WARNING: "
 	  << "propagator does not support setMaxDirectionChange" 
 	  << endl;
   //   addStopCondition(theMinPtStopCondition);
-
   theConfigurableCondition = createAlgo<TrajectoryFilter>(componentConfig("StopCondition"));
   ===================================== */
 
@@ -256,7 +255,9 @@ GroupedCkfTrajectoryBuilder::groupedLimitedCandidates (TempTrajectory& startingT
   candidates.push_back( startingTraj);
 
   while ( !candidates.empty()) {
-
+#ifdef DBG_GCTB
+    cout << "===== GCTB::groupedLimitedCandidates, start NEW iteration of WHILE loop" << endl;
+#endif
     newCand.clear();
     for (TempTrajectoryContainer::iterator traj=candidates.begin();
 	 traj!=candidates.end(); traj++) {
@@ -323,12 +324,18 @@ GroupedCkfTrajectoryBuilder::groupedLimitedCandidates (TempTrajectory& startingT
     cout << "candidates(3)";
     for ( TempTrajectoryContainer::const_iterator it=candidates.begin();
 	  it!=candidates.end(); it++ ) 
-      cout << " " << it->lostHits() << " " << it->foundHits() 
-	   << " " << it->chiSquared() << " ;";
+      cout << "lost,found,chi2, last pt, r,z: " 
+	   << it->lostHits() << " , " 
+	   << it->foundHits() << " , " 
+	   << it->chiSquared() << " , "
+	   << it->lastMeasurement().updatedState().globalMomentum().perp() << " , "
+	   << it->lastMeasurement().updatedState().globalPosition().perp() << " , "
+	   << it->lastMeasurement().updatedState().globalPosition().z() << endl; 
     cout << endl;
 
     cout << "after intermediate cleaning = " << candidates.size() << endl;
     //B.M. ShowCand()(candidates);
+    cout << "===== GCTB::groupedLimitedCandidates, END iteration of WHILE loop" << endl;
 #endif
   }
 }
@@ -357,7 +364,7 @@ GroupedCkfTrajectoryBuilder::advanceOneLayer (TempTrajectory& traj,
   //B.M. cout << "Started from " << layerName(traj.lastLayer()) 
   const BarrelDetLayer* sbdl = dynamic_cast<const BarrelDetLayer*>(traj.lastLayer());
   const ForwardDetLayer* sfdl = dynamic_cast<const ForwardDetLayer*>(traj.lastLayer());
-  if (sbdl) cout << "Started from " << traj.lastLayer() << " r " << sbdl->specificSurface().radius() << endl;
+  if (sbdl)     cout << "Started from " << traj.lastLayer() << " r " << sbdl->specificSurface().radius() << endl;
   if (sfdl) cout << "Started from " << traj.lastLayer() << " z " << sfdl->specificSurface().position().z() << endl;
   cout << "Trying to go to";
   for ( vector<const DetLayer*>::iterator il=nl.begin();
@@ -381,13 +388,6 @@ GroupedCkfTrajectoryBuilder::advanceOneLayer (TempTrajectory& traj,
     TSOS stateToUse = stateAndLayers.first;
     if ((*il)==traj.lastLayer())
       {
-	// ---- BE CAREFUL ----                                                                             
-	// Self navigation has to be used only when there aren't other compatible layers!             
-        // Jumping from one side of a barrel layer to the other, can allow to                             
-	// skip many many layers *without* having penalty for the lost measurements                
-        if(stateAndLayers.second.size()>=2) continue;
-	// ---------                                              
-
 	LogDebug("CkfPattern")<<" self propagating in advanceOneLayer.\n from: \n"<<stateToUse;
 	//self navigation case
 	// go to a middle point first
