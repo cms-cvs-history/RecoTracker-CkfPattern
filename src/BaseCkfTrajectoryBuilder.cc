@@ -116,6 +116,14 @@ createStartingTrajectory( const TrajectorySeed& seed) const
 
 bool BaseCkfTrajectoryBuilder::toBeContinued (TempTrajectory& traj) const
 {
+  if (traj.measurements().size() > 400) {
+    edm::LogError("Cropping Track After 400 Measurements");
+    LogTrace("Cropping Track After 400 Measurements") <<
+         "Last predicted state: " << traj.lastMeasurement().predictedState() << "\n" <<
+         "Last layer subdetector: " << (traj.lastLayer() ? traj.lastLayer()->subDetector() : -1) << "\n" <<
+         "Found hits: " << traj.foundHits() << ", lost hits: " << traj.lostHits() << "\n\n";
+    return false;
+  }
   return theFilter->toBeContinued(traj);
 }
 
