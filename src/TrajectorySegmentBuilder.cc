@@ -582,6 +582,11 @@ TrajectorySegmentBuilder::cleanCandidates (vector<TempTrajectory>& candidates) c
                                    std::not1(std::mem_fun_ref(&TempTrajectory::isValid))),
  //                                boost::bind(&TempTrajectory::isValid,_1)), 
                                    candidates.end()); 
+  if (theMaxSegments >=0 && candidates.size() > (unsigned int)theMaxSegments){
+    unsigned int nExtra = candidates.size() - theMaxSegments;
+    //cands are sorted from short to long; long is good
+    candidates.erase(candidates.begin(), candidates.begin()+nExtra);
+  }
 #ifdef DBG_TSB
   cout << "TSB: cleanCandidates: reduced from " << sortedCandidates.size()
        << " to " << candidates.size() << " candidates" << endl;
