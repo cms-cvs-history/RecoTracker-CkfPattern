@@ -91,6 +91,7 @@ GroupedCkfTrajectoryBuilder(const edm::ParameterSet&              conf,
   theBestHitOnly              = conf.getParameter<bool>("bestHitOnly");
   theMinNrOf2dHitsForRebuild  = 2;
   theRequireSeedHitsInRebuild = conf.getParameter<bool>("requireSeedHitsInRebuild");
+  theKeepOriginalIfRebuildFails = conf.getParameter<bool>("keepOriginalIfRebuildFails");
   theMinNrOfHitsForRebuild    = max(0,conf.getParameter<int>("minNrOfHitsForRebuild"));
   maxPtForLooperReconstruction     = conf.existsAs<double>("maxPtForLooperReconstruction") ? 
     conf.getParameter<double>("maxPtForLooperReconstruction") : 0;
@@ -743,7 +744,7 @@ GroupedCkfTrajectoryBuilder::rebuildSeedingRegion(TempTrajectory& startingTraj,
     int nRebuilt =
       rebuildSeedingRegion (seedHits,reFitted.front(),rebuiltTrajectories);
 
-    if ( nRebuilt==0 ) it->invalidate();  // won't use original in-out track
+    if ( nRebuilt==0 && !theKeepOriginalIfRebuildFails ) it->invalidate();  // won't use original in-out track
 
     if ( nRebuilt<=0 ) rebuiltTrajectories.push_back(*it);
 
